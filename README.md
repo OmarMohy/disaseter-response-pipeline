@@ -1,4 +1,4 @@
-# disaseter-response-pipeline
+# disaster-response-pipeline
 Udacity Data Science Nanodegree Project
 
 Analyze disaster data from Figure Eight to build a model for an API that classifies disaster messages.
