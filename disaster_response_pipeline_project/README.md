@@ -1,3 +1,0 @@
-# Disaster Response Pipeline Project
-
-
