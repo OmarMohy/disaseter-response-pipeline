@@ -55,6 +55,8 @@ def clean_data(df):
     # Replace categories column in df with new category columns
     df.drop(columns='categories', inplace=True)
     df = pd.concat([df, categories], axis=1)
+    # Ensure related column is 0 and 1 values only
+    df=df[df['related']!=2]
     
     # Remove duplicates
     df.drop_duplicates(inplace=True)
@@ -72,7 +74,7 @@ def save_data(df, database_filename):
     
     """
     engine = create_engine('sqlite:///' + database_filename) 
-    df.to_sql('disaster_response', engine, index=False)  
+    df.to_sql('disaster_response', engine, index=False, if_exists='replace')
 
 
 def main():
