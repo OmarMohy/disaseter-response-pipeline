@@ -99,7 +99,7 @@ def evaluate_model(model, X_test, Y_test, category_names):
     predicted = cv.predict(X_test)
     
     # print classification report for each category
-    for i, col in enumerate(y.columns):
+    for i, col in enumerate(category_names):
         print('Category: {}\n'.format(col))
         print('Accuracy: {}\n'.format((y_test[col] == predicted[:,i]).mean()))
         print(classification_report(y_test[col], predicted[:,i]))
