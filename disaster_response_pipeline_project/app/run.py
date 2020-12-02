@@ -46,6 +46,8 @@ def index():
     category_names = df.iloc[:,4:].columns
     category_counts = (df.iloc[:,4:] != 0).sum().values
     
+    labels_per_message_index = df.iloc[:,4:].sum(axis=1).value_counts().sort_index().index
+    labels_per_message_counts = df.iloc[:,4:].sum(axis=1).value_counts().sort_index().values
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
@@ -84,6 +86,25 @@ def index():
                 },
                 'xaxis': {
                     'title': "Categories"
+                }
+            }
+        },   # GRAPH 3 - Labels per Message Counts
+            {
+             'data': [
+                Bar(
+                    x=labels_per_message_index,
+                    y=labels_per_message_counts,
+                    
+                )
+            ],
+
+            'layout': {
+                'title': 'Number of Labels per Message',
+                'yaxis': {
+                    'title': "Number of Messages"
+                },
+                'xaxis': {
+                    'title': "Number of labels"
                 }
             }
         }
